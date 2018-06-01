@@ -15,12 +15,12 @@ var users = [];
 if (localStorage.a_users) {
     users = JSON.parse(localStorage.a_users);
     for(var i=0; i<users.length; i++){
-        tuser = tuser +"<tr><td>" + users[i].username + "</td>" + "<td>" + users[i].firstname + "</td>" + "<td>" + users[i].emailid + "</td>" + "<td>" + users[i].username + "</td></tr>";
+        tuser = tuser +"<tr><td>" + users[i].username + "</td>" + "<td>" + users[i].firstname + "</td>" + "<td>" + users[i].emailid + "</td>" + "<td>" + users[i].password +"</td>" + "<td>" + users[i].location +"</td>" + "<td>" + users[i].company + "</td>"+"<td>"+ users[i].gender + "</td></tr>";
     }
     displayUsers();
 }
 function displayUsers() {    
-    document.getElementById("table").insertAdjacentHTML("beforeend",`<table id="table_users"><thead><tr><th>username</th><th>firstname</th><th>emaild</th><th>password</th><th>location</th><th>company</th><tr></thead><tbody>${tuser}</tbody></table>`);
+    document.getElementById("table").insertAdjacentHTML("beforeend",`<table id="table_users"><thead><tr><th>username</th><th>firstname</th><th>emaild</th><th>password</th><th>location</th><th>company</th><th>gender</th><tr></thead><tbody>${tuser}</tbody></table>`);
 
 }
 document.getElementById('btn').addEventListener('click', function () {
@@ -50,13 +50,14 @@ document.getElementById('btn').addEventListener('click', function () {
             'password': document.getElementById('password').value,
             'location': document.getElementById('location').value,
             'company': document.getElementById('company').value,
+          //  'gender':document.getElementById('p_elem_7').value
         };
         //console.log(user);
         users.push(user);
         localStorage.a_users = JSON.stringify(users);
     }
 
-    tuser = tuser +"<tr><td>" + users[users.length-1].username + "</td>" + "<td>" + users[users.length-1].firstname + "</td>" + "<td>" + users[users.length-1].emailid + "</td>" + "<td>" + users[users.length-1].username + "</td></tr>";
+    tuser = tuser +"<tr><td>" + users[users.length-1].username + "</td>" + "<td>" + users[users.length-1].firstname + "</td>" + "<td>" + users[users.length-1].emailid + "</td>" + "<td>" + users[users.length-1].password +"</td>" + "<td>" + users[i].location +"</td>" + "<td>" + users[i].company +"</td>" + "<td>" + users[i].gender + "</td></tr>";
     
     if(document.contains(document.getElementById("table_users"))){
     document.getElementById("table_users").remove();
