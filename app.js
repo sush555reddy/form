@@ -50,14 +50,14 @@ document.getElementById('btn').addEventListener('click', function () {
             'password': document.getElementById('password').value,
             'location': document.getElementById('location').value,
             'company': document.getElementById('company').value,
-          //  'gender':document.getElementById('p_elem_7').value
+            'gender':   document.getElementById('p_elem_7').checked ? "Female" : "Male"
         };
         //console.log(user);
         users.push(user);
         localStorage.a_users = JSON.stringify(users);
     }
 
-    tuser = tuser +"<tr><td>" + users[users.length-1].username + "</td>" + "<td>" + users[users.length-1].firstname + "</td>" + "<td>" + users[users.length-1].emailid + "</td>" + "<td>" + users[users.length-1].password +"</td>" + "<td>" + users[i].location +"</td>" + "<td>" + users[i].company +"</td>" + "<td>" + users[i].gender + "</td></tr>";
+    tuser = tuser +"<tr><td>" + users[users.length-1].username + "</td>" + "<td>" + users[users.length-1].firstname + "</td>" + "<td>" + users[users.length-1].emailid + "</td>" + "<td>" + users[users.length-1].password +"</td>" + "<td>" + users[users.length-1].location +"</td>" + "<td>" + users[users.length-1].company +"</td>" + "<td>" + users[users.length-1].gender + "</td></tr>";
     
     if(document.contains(document.getElementById("table_users"))){
     document.getElementById("table_users").remove();
